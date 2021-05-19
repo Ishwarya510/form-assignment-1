@@ -1,8 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
+
 import "./App.css"
 
-const App = () => {
-  const [formStep,setformStep]=React.useState(0);
+
+function App() {
+  const [formStep,setformStep]=useState(0);
+  
   const complete=()=>{
     setformStep(cur=>cur+1)
   }
@@ -14,6 +17,7 @@ const App = () => {
      return( <button
       onClick={complete}
         type="button"
+        className="chiki"
       >
         Create Account
       </button>)
@@ -22,25 +26,21 @@ const App = () => {
    return( <button
     onClick={complete}
       type="button"
+      className="chiki"
     >
       Next step
     </button>)
   }
 }
   return (
-    <div>
+    <div className="App">
     
       <div >
-        <h1 >
-          Welcome to <span >the Club</span>
-        </h1>
-        <p >
-          Become a new member in 3 easy steps
-        </p>
+      <h1>Multi-Step Form</h1>
       </div>
       <div >
-        <div >
-          <form>
+        <div className="form" >
+          <form >
             {formStep === 0 &&<section>
             <h2 >
               Personal Information
@@ -59,21 +59,64 @@ const App = () => {
               id="lastname"
               name="lastname"
               className="text-input"
-             
+            
             />
             <label htmlFor="username">Contact</label>
             <input
-              type="number"
+              type="tel"
               id="contact"
               name="username"
               className="text-input"
-             
+         
             />
             
             </section>}
            {formStep === 1 && <section>
-            <h2 >Billing Information</h2>
-            <label htmlFor="address">Address</label>
+            <h2 >Address Information</h2>
+           
+            <label htmlFor="address">Address line 1</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">Address line 2</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">Address line 3</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">Country</label>
+            <input
+              type="country"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">State</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">City</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">Zip code </label>
             <input
               type="text"
               id="address"
@@ -82,40 +125,37 @@ const App = () => {
             />
             </section>}
             {formStep===2 &&<section>
-            <h2 >Legal Information</h2>
-            <div >
-              <input
-                name="toc"
-                type="checkbox"
-              />
-              <span>
-                I accept the{" "}
-                <a className="text-blue-400 underline" href="/">
-                  Terms and Conditions
-                </a>
-                .
-              </span>
-            </div>
-            <div className="block mt-6">
-              <input
-                name="pp"
-                type="checkbox"
-              />
-              <span>
-                I accept the{" "}
-                <a  href="/">
-                  Privacy Policy
-                </a>
-                .
-              </span>
-            </div>
+            <h2 >Account Information</h2>
+            <label htmlFor="address">Email</label>
+            <input
+              type="email"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">Password</label>
+            <input
+              type="password"
+              id="address"
+              name="address"
+              className="text-input"
+            />
+             <label htmlFor="address">Confirm Password</label>
+            <input
+              type="password"
+              id="address"
+              name="address"
+              className="text-input"
+            /> 
+           
             </section>}
             {formStep === 3 &&(<section>
             <h2>
-              Congratulation
+              Account Created....
             </h2>
             </section>)}
            {renderButton()}
+          
           </form>
         </div>
       </div>
